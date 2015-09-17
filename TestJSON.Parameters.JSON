@@ -1,0 +1,47 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "Southeast Asia"
+    },
+    "vNetAddressPrefix": {
+      "value": "10.20.0.0/16"
+    },
+    "subnetELBaName": {
+      "value": "services-ELB-tier-a"
+    },
+    "subnetELBaBlock": {
+      "value": "10.20.0.0/19"
+    },
+    "subnetELBbName": {
+      "value": "services-ELB-tier-b"
+    },
+    "subnetELBbBlock": {
+      "value": "10.20.32.0/19"
+    },
+    "subnetPRIVaName": {
+      "value": "services-Private-tier-a"
+    },
+    "subnetPRIVaBlock": {
+      "value": "10.20.64.0/19"
+    },
+    "subnetPRIVbName": {
+      "value": "services-Private-tier-b"
+    },
+    "subnetPRIVbBlock": {
+      "value": "10.20.96.0/19"
+  },
+    "subnetPUBaName": {
+      "value": "services-Public-tier-a"
+    },
+    "subnetPUBaBlock": {
+      "value": "10.20.128.0/19"
+    },
+    "subnetPUBbName": {
+      "value": "services-Public-tier-b"
+    },
+    "subnetPUBbBlock": {
+      "value": "10.20.160.0/19"
+  }
+}
