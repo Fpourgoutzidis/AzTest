@@ -1,0 +1,172 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+	  "defaultValue": "Southeast Asia",
+      "allowedValues": [
+        "Central US",
+		"East Asia",
+		"East US",
+		"East US 2",
+		"Japan East",
+		"Japan West",
+		"North Central US",
+		"North Europe",
+		"South Central US",
+		"Southeast Asia",
+		"West Europe",
+		"West US"
+      ],
+      "metadata": {
+        "description": "Deployment location"
+      }
+    },
+    "vNetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.20.0.0/16",
+      "metadata": {
+        "description": "Address prefix for virtual Network"
+      }
+    },
+    "subnetELBaName": {
+      "type": "string",
+      "defaultValue": "services-ELB-tier-a",
+      "metadata": {
+        "Description": "Name of ELB tier A subnet"
+      }
+    },
+	"subnetELBaBlock": {
+      "type": "string",
+      "defaultValue": "10.20.0.0/19",
+      "metadata": {
+        "Description": "Subnet ELB Tier A CIDR Block "
+      }
+    },
+    "subnetELBbName": {
+      "type": "string",
+      "defaultValue": "services-ELB-tier-b",
+      "metadata": {
+        "Description": "Name of ELB tier B subnet"
+      }
+    },
+	"subnetELBbBlock": {
+      "type": "string",
+      "defaultValue": "10.20.32.0/19",
+      "metadata": {
+        "Description": "Subnet ELB Tier B CIDR Block "
+      }
+    },
+    "subnetPRIVaName": {
+      "type": "string",
+      "defaultValue": "services-PRIV-tier-a",
+      "metadata": {
+        "Description": "Name of Private tier A subnet"
+      }
+    },
+	"subnetPRIVaBlock": {
+      "type": "string",
+      "defaultValue": "10.20.64.0/19",
+      "metadata": {
+        "Description": "Subnet ELB Tier A CIDR Block "
+      }
+    },
+    "subnetPRIVbName": {
+      "type": "string",
+      "defaultValue": "services-PRIV-tier-b",
+      "metadata": {
+        "Description": "Name of Private tier B subnet"
+      }
+    },
+	"subnetPRIVbRange": {
+      "type": "string",
+      "defaultValue": "10.20.96.0/19",
+      "metadata": {
+        "Description": "Subnet ELB Tier B CIDR Block "
+      }
+    },
+    "subnetPUBaName": {
+      "type": "string",
+      "defaultValue": "services-PUB-tier-a",
+      "metadata": {
+        "Description": "Name of Public tier A subnet"
+      }
+    },
+	"subnetPUBaBlock": {
+      "type": "string",
+      "defaultValue": "10.20.128.0/19",
+      "metadata": {
+        "Description": "Subnet Public Tier A CIDR Block "
+      }
+    },
+    "subnetPUBbName": {
+      "type": "string",
+      "defaultValue": "services-PUB-tier-b",
+      "metadata": {
+        "Description": "Name of Public tier B subnet"
+      }
+    },
+	"subnetPUBbRange": {
+      "type": "string",
+      "defaultValue": "10.20.160.0/19",
+      "metadata": {
+        "Description": "Subnet Public Tier B CIDR Block "
+      }
+    }
+
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-05-01-preview",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "virtualNetwork1",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vNetAdressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('subnetELBaName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetELBaBlock')]"
+            }
+          },
+		  {
+            "name": "[parameters('subnetELBbName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetELBbBlock')]"
+            }
+          },
+		            {
+            "name": "[parameters('subnetPRIVaName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetPRIVaBlock')]"
+            }
+          },
+		  {
+            "name": "[parameters('subnetPRIVbName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetPRIVbBlock')]"
+            }
+          },
+		            {
+            "name": "[parameters('subnetPUBaName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetPUBaBlock')]"
+            }
+          },
+		  {
+            "name": "[parameters('subnetPUBbName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetPUBbBlock')]"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
