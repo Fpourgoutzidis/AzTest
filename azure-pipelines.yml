@@ -13,8 +13,17 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: ls
-  displayName: "Run a One Line script"
+- task: PowerShell@2
+  inputs:
+    targetType: 'filePath' 
+    filePath: .\RunScript.ps1
+    arguments: "HELLO WORLD"
+    #script: '# Write your PowerShell commands here.Write-Host Hello World' # Required when targetType == Inline
+    #errorActionPreference: 'stop' # Optional. Options: stop, continue, silentlyContinue
+    #failOnStderr: false # Optional
+    #ignoreLASTEXITCODE: false # Optional
+    #pwsh: false # Optional
+    #workingDirectory: # Optional
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
