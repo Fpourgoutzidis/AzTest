@@ -13,8 +13,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo $ {{ variables.configuration }}
-  displayName: 'Run a one-line script'
+- script: . .\RunScript.ps1 'hello'
+  displayName: "Run a One Line script"
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
