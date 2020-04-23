@@ -24,7 +24,7 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'filePath' 
-    filePath: RunScript.ps1
+    filePath: runScript.ps1
     arguments: "HELLO WORLD"
     #script: '# Write your PowerShell commands here.Write-Host Hello World' # Required when targetType == Inline
     #errorActionPreference: 'stop' # Optional. Options: stop, continue, silentlyContinue
