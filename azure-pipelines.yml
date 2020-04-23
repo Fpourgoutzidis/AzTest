@@ -13,7 +13,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: . .\RunScript.ps1 'hello'
+- script: Powershell .\RunScript.ps1 'hello'
   displayName: "Run a One Line script"
 
 - script: |
