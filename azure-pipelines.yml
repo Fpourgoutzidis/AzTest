@@ -13,7 +13,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo $[variables.TextToShow]
+- script: echo $(TextToShow)
+
 - script:
     dir
 
