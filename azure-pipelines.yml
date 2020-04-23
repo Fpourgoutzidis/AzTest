@@ -13,7 +13,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo $(TextToShow)
+- script: |
+  echo $(TextToShow)
+  echo $PWD
 
 - script:
     dir
