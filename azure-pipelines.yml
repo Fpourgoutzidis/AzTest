@@ -14,8 +14,9 @@ pool:
 
 steps:
 - script: |
-  echo $(TextToShow).
-  echo $PWD
+    echo $(TextToShow).
+    echo $PWD
+  displayName: 'Run a few commands'
 
 - script:
     dir
