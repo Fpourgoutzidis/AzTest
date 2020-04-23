@@ -10,7 +10,7 @@ trigger:
 - master
 
 pool:
-  vmImage: $configuration
+  vmImage: ubuntu-latest
 
 steps:
 - script: echo Hello, world!
